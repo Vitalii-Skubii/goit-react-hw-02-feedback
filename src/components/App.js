@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Statistics from './Statistics';
 import Section from './Section';
 import FeedbackOptions from './FeedbackOptions';
-
+import styles from './App.module.css';
 import ButtonNames from '../data/ButtonNames.json';
 
 class App extends Component {
@@ -33,7 +33,7 @@ class App extends Component {
     const total = this.totalStatsCounter();
     const goodFeegbackPercentage = this.goodFeegbackPercentageCounter();
     return (
-      <>
+      <div className={styles.wrapper}>
         <Section title="Please leave your feedback">
           <FeedbackOptions
             stats={ButtonNames}
@@ -49,7 +49,7 @@ class App extends Component {
             goodFeegbackPercentage={goodFeegbackPercentage}
           />
         </Section>
-      </>
+      </div>
     );
   }
 }

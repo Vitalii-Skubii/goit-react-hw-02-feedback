@@ -1,9 +1,16 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import styles from './FeedbackOptions.module.css';
 
-const FeedbackButton = ({ feedback, onFeedbackLeave }) => {
+const FeedbackButton = ({ feedback, onFeedbackLeave, id }) => {
   return (
-    <button type="button" data-feedback={feedback} onClick={onFeedbackLeave}>
+    <button
+      className={styles.btn}
+      type="button"
+      data-feedback={feedback}
+      onClick={onFeedbackLeave}
+      key={id}
+    >
       {feedback}
     </button>
   );
@@ -11,7 +18,11 @@ const FeedbackButton = ({ feedback, onFeedbackLeave }) => {
 
 const FeedbackOptions = ({ stats, onFeedbackLeave }) => {
   return stats.map(stat => (
-    <FeedbackButton feedback={stat} onFeedbackLeave={onFeedbackLeave} />
+    <FeedbackButton
+      feedback={stat}
+      onFeedbackLeave={onFeedbackLeave}
+      id={stats.indexOf(stat)}
+    />
   ));
 };
 
